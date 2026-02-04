@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Editor de Testes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="editor-container">
+        <div class="areas-texto">
+            <div class="painel">
+                <label>HTML</label>
+                <textarea id="html-code" placeholder="Cole seu HTML aqui..." oninput="atualizar()"></textarea>
+            </div>
+            
+            <div class="painel">
+                <label>CSS</label>
+                <textarea id="css-code" placeholder="Cole seu CSS aqui..." oninput="atualizar()"></textarea>
+            </div>
+
+            <div class="painel">
+                <label>JavaScript</label>
+                <textarea id="js-code" placeholder="Cole seu JS aqui..." oninput="atualizar()"></textarea>
+            </div>
+        </div>
+
+        <div class="preview">
+            <label>Resultado em Tempo Real:</label>
+            <iframe id="resultado"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
