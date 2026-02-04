@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Chat Pro",
+  "description": "A high-performance, aesthetically pleasing AI chat interface powered by Google's Gemini 3 models, featuring streaming responses, markdown support, and real-time grounding.",
+  "requestFramePermissions": []
+}
