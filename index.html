@@ -3,35 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Editor de Testes</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CrediPrime | Empréstimos Rápidos e Seguros</title>
+    <style>
+        :root {
+            --primary: #004aad;
+            --secondary: #00c6ff;
+            --dark: #1a1a1a;
+            --light: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Simulador Card */
+        .loan-card {
+            background: var(--white);
+            max-width: 500px;
+            margin: -50px auto 50px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            color: var(--dark);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .btn-apply {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-apply:hover {
+            background: #003580;
+        }
+
+        /* Diferenciais */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 50px 5%;
+        }
+
+        .feature-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-item h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="editor-container">
-        <div class="areas-texto">
-            <div class="painel">
-                <label>HTML</label>
-                <textarea id="html-code" placeholder="Cole seu HTML aqui..." oninput="atualizar()"></textarea>
-            </div>
+    <header>
+        <div class="logo">CrediPrime</div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Simulação</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Crédito na mão, sem complicação.</h1>
+        <p>Taxas a partir de 1.2% ao mês. Dinheiro na conta em até 24 horas.</p>
+    </section>
+
+    <section class="loan-card">
+        <h3>Simule seu empréstimo</h3>
+        <div class="input-group">
+            <label>Quanto você precisa? (R$ <span id="amountText">5.000</span>)</label>
+            <input type="range" min="1000" max="50000" step="500" value="5000" id="amountRange">
+        </div>
+        <div class="input-group">
+            <label>Em quantas parcelas? (<span id="monthsText">12</span>x)</label>
+            <input type="range" min="6" max="48" step="6" value="12" id="monthsRange">
+        </div>
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <p>Estimativa de parcela: <br><strong style="font-size: 1.5rem; color: var(--primary);">R$ <span id="totalText">475,00</span></strong></p>
+        </div>
+        <button class="btn-apply">SOLICITAR AGORA</button>
+    </section>
+
+    <section class="features">
+        <div class="feature-item">
+            <h3>Rápido</h3>
+            <p>Análise de crédito em poucos minutos e aprovação instantânea.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Seguro</h3>
+            <p>Seus dados estão protegidos com criptografia de ponta a ponta.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Transparente</h3>
+            <p>Sem taxas escondidas. Você sabe exatamente quanto vai pagar.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CrediPrime Instituição Financeira. Todos os direitos reservados.</p>
+        <small>Sujeito a análise de crédito. Taxas variáveis conforme perfil.</small>
+    </footer>
+
+    <script>
+        // Lógica simples para o simulador
+        const amountRange = document.getElementById('amountRange');
+        const monthsRange = document.getElementById('monthsRange');
+        const amountText = document.getElementById('amountText');
+        const monthsText = document.getElementById('monthsText');
+        const totalText = document.getElementById('totalText');
+
+        function updateValues() {
+            const amount = parseFloat(amountRange.value);
+            const months = parseInt(monthsRange.value);
             
-            <div class="painel">
-                <label>CSS</label>
-                <textarea id="css-code" placeholder="Cole seu CSS aqui..." oninput="atualizar()"></textarea>
-            </div>
+            amountText.innerText = amount.toLocaleString('pt-BR');
+            monthsText.innerText = months;
 
-            <div class="painel">
-                <label>JavaScript</label>
-                <textarea id="js-code" placeholder="Cole seu JS aqui..." oninput="atualizar()"></textarea>
-            </div>
-        </div>
+            // Cálculo meramente ilustrativo (Juros simples de 1.5% ao mês)
+            const rate = 0.015;
+            const installment = (amount / months) + (amount * rate);
+            totalText.innerText = installment.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
 
-        <div class="preview">
-            <label>Resultado em Tempo Real:</label>
-            <iframe id="resultado"></iframe>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+        amountRange.addEventListener('input', updateValues);
+        monthsRange.addEventListener('input', updateValues);
+    </script>
 </body>
 </html>
